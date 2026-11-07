@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kviz</title>
+    <!-- Glavni stilovi -->
+    <link rel="stylesheet" href="/styles/style.css">
+    <!-- Specifični stilovi za kviz -->
+    <link rel="stylesheet" href="/styles/quiz.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <ul>
+                <li><a href="/index.html">Početna</a></li>
+                <li><a href="/quiz.html?kviz=film">Kviz Film</a></li>
+                <li><a href="/quiz.html?kviz=geografija">Kviz Geografija</a></li>
+            </ul>
+        </header>
+
+        <main class="container">
+            <div id="quiz-container">
+                <h1 id="quiz-title">Kviz</h1>
+                <div id="category">Kategorija:</div>
+                <div id="question">Pitanje će se pojaviti ovdje</div>
+                <div id="timer">Vrijeme: 0s</div>
+                <div id="score">Poeni: 0</div>
+
+                <div id="options" class="options"></div>
+
+                <div id="result"></div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <ul>
+            <li><a href="/index.html">Početna</a></li>
+            <li><a href="/kontakt.html">Kontakt</a></li>
+        </ul>
+    </footer>
+
+    <script src="/scripts/quiz.js"></script>
+</body>
+</html>

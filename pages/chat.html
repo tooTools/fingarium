@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chat s Nickname</title>
+  <style>
+
+    body { font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 1rem; }
+    #chat { border: 1px solid #ccc; padding: 1rem; height: 400px; overflow-y: scroll; margin-bottom: 1rem; background: #f9f9f9; }
+    #nickname, #message { width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; }
+    button { padding: 0.5rem 1rem; }
+    .msg { margin-bottom: 0.5rem; }
+    .nick { font-weight: bold; }
+  </style>
+
+ <ul>
+    <li><a href="/">Home</a></li>       <!-- Link nazad na glavnu -->
+    <li><a href="pages/pageGamesCommingSoon.html">Games</a></li>
+    <li><a href="pages/contact.html">Contact</a></li>
+    <li><a href="https://www.patreon.com/user?u=76812520">Patreon</a></li>
+    <li><a href="chat.html">Chat</a></li>  <!-- Ako već nisi na toj stranici -->
+  </ul>
+
+</head>
+<body>
+  <button onclick="location.href='index.html'">Home</button>
+  <h2>Chat</h2>
+
+  <input type="text" id="nickname" placeholder="Tvoj Nickname" />
+
+  <div id="chat"></div>
+
+  <form id="messageForm">
+    <input type="text" id="message" placeholder="Napiši poruku..." />
+    <button type="submit">Pošalji</button>
+  </form>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCLvSssDTaan8XO_hN07zN1Rez5QfcDh7s",
+      authDomain: "testchat-a4f35.firebaseapp.com",
+      projectId: "testchat-a4f35",
+      storageBucket: "testchat-a4f35.appspot.com",
+      messagingSenderId: "191578038949",
+      appId: "1:191578038949:web:39061e2e44d5c0d6b0e34c",
+      measurementId: "G-X71357RB1Y"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const chatBox = document.getElementById('chat');
+      const nicknameInput = document.getElementById('nickname');
+      const messageInput = document.getElementById('message');
+      const messageForm = document.getElementById('messageForm');
+
+      if (localStorage.getItem('nickname')) {
+        nicknameInput.value = localStorage.getItem('nickname');
+      }
+
+      nicknameInput.addEventListener('change', () => {
+        localStorage.setItem('nickname', nicknameInput.value.trim());
+      });
+
+      messageForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const nickname = nicknameInput.value.trim();
+        const message = messageInput.value.trim();
+
+        if (!nickname) {
+          alert("Molim te, upiši Nickname!");
+          return;
+        }
+        if (!message) {
+          alert("Molim te, upiši poruku!");
+          return;
+        }
+
+        try {
+          await addDoc(collection(db, "messages"), {
+            nickname,
+            message,
+            timestamp: serverTimestamp()
+          });
+          messageInput.value = '';
+        } catch (error) {
+          alert("Greška prilikom slanja poruke: " + error.message);
+        }
+      });
+
+      const q = query(collection(db, "messages"), orderBy("timestamp"));
+      onSnapshot(q, (snapshot) => {
+        chatBox.innerHTML = '';
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          const div = document.createElement('div');
+          div.className = 'msg';
+          div.innerHTML = `<span class="nick">${data.nickname}:</span> ${data.message}`;
+          chatBox.appendChild(div);
+        });
+        chatBox.scrollTop = chatBox.scrollHeight;
+      });
+    });
+  </script>
+</body>
+</html>

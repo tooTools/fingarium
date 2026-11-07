@@ -1,0 +1,20 @@
+[
+  {
+    "kategorija": "Geografija",
+    "pitanje": "Koji je glavni grad Brazila?",
+    "opcije": ["Rio de Janeiro", "Brasília", "São Paulo", "Belo Horizonte"],
+    "odgovor": "Brasília"
+  },
+  {
+    "kategorija": "Geografija",
+    "pitanje": "Koja je najduža rijeka na svijetu?",
+    "opcije": ["Nil", "Amazon", "Yangtze", "Mississippi"],
+    "odgovor": "Nil"
+  },
+  {
+    "kategorija": "Geografija",
+    "pitanje": "U kojoj zemlji se nalazi planina Kilimandžaro?",
+    "opcije": ["Kenija", "Tanzanija", "Uganda", "Etiopija"],
+    "odgovor": "Tanzanija"
+  }
+]

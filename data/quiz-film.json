@@ -1,0 +1,14 @@
+[
+  {
+    "kategorija": "Film",
+    "pitanje": "Ko je režirao film Titanic iz 1997. godine?",
+    "opcije": ["Steven Spielberg", "James Cameron", "Martin Scorsese", "Quentin Tarantino"],
+    "odgovor": "James Cameron"
+  },
+  {
+    "kategorija": "Film",
+    "pitanje": "Koji glumac je tumačio Iron Mana u Marvel filmovima?",
+    "opcije": ["Chris Evans", "Chris Hemsworth", "Robert Downey Jr.", "Mark Ruffalo"],
+    "odgovor": "Robert Downey Jr."
+  }
+]

@@ -1,0 +1,11 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Card Game",
+"dataUrl": "Game1CardRoll.data.unityweb",
+"asmCodeUrl": "Game1CardRoll.asm.code.unityweb",
+"asmMemoryUrl": "Game1CardRoll.asm.memory.unityweb",
+"asmFrameworkUrl": "Game1CardRoll.asm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"splashScreenStyle": "Dark",
+"backgroundColor": "#222C36"
+}
