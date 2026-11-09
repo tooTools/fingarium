@@ -4,80 +4,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GIF Gallery | Fingarium</title>
+    <title>Animated Comics | Fingarium</title>
     <link rel="stylesheet" href="../styles/style.css">
 
     <style>
-        .gallery-container {
+        .comics-gallery {
             max-width: 1100px;
             margin: 40px auto;
             padding: 20px;
             text-align: center;
         }
 
-        .gallery-grid {
+        .episode-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 25px;
             margin-top: 35px;
         }
 
-        .gallery-item {
+        .episode-card {
+            display: block;
+            color: inherit;
+            text-decoration: none;
             padding: 15px;
             border-radius: 12px;
-            background: rgba(128,128,128,0.08);
+            background: rgba(128,128,128,0.10);
+            transition: transform 0.2s;
         }
 
-        .gallery-item img {
+        .episode-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .episode-card img {
             width: 100%;
             height: auto;
             border-radius: 8px;
-            display: block;
         }
 
-        .back-link {
+        .back-home {
             display: inline-block;
-            margin: 20px;
+            margin-top: 35px;
         }
     </style>
 </head>
 
 <body>
-
 <div class="page-wrapper">
 
     <header>
         <ul>
             <li><a href="../index.html">Home</a></li>
-            <li><a href="../pages/quiz-select.html">Quiz</a></li>
-            <li><a href="../pages/pageGamesCommingSoon.html">Games</a></li>
-            <li><a href="../pages/contact.html">Contact</a></li>
         </ul>
     </header>
 
-    <main class="gallery-container">
+    <main class="comics-gallery">
 
-        <h1>GIF Gallery</h1>
-        <p>Animated visuals and creative experiments.</p>
+        <h1>ANIMATED COMICS</h1>
+        <p>Stories, episodes and animated adventures.</p>
 
-        <div class="gallery-grid">
+        <h2>3R Protocol</h2>
 
-            <div class="gallery-item">
+        <div class="episode-grid">
+
+            <a class="episode-card"
+               href="https://ik.imagekit.io/fingarium/Giff/Giff/3R%20Protocol/TestIzAftera.gif">
+
                 <img
                     src="https://ik.imagekit.io/fingarium/Giff/Giff/3R%20Protocol/TestIzAftera.gif"
-                    alt="3R Protocol GIF"
-                    loading="lazy"
-                >
-                <h2>3R Protocol</h2>
-            </div>
+                    alt="3R Protocol Episode 01">
+
+                <h2>Episode 01</h2>
+                <p>3R Protocol – Animated Comic</p>
+                <span>Read episode →</span>
+
+            </a>
 
         </div>
 
-        <a class="back-link" href="../index.html">← Back to Home</a>
+        <a class="back-home" href="../index.html">
+            ← Back to Home
+        </a>
 
     </main>
 
 </div>
-
 </body>
 </html>
