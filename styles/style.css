@@ -187,6 +187,14 @@ footer a:hover {
 }
 
 
+.gif-preview-image {
+    transition: transform 0.25s ease;
+}
+
+.gif-preview-image:hover {
+    transform: scale(1.06);
+}
+
 
 /*za Giff da bude u cardu a ne samostalno Go
 .home-page .card:last-child .card-image {
@@ -194,3 +202,22 @@ footer a:hover {
     background-color: rgb(19, 19, 19);
 }
 */
+
+/* GIF CARD - HOME PAGE 
+.home-page .gif-card {
+    grid-column: 1 / -1;
+    background: rgb(68, 68, 68);
+}
+
+.home-page .gif-card-image {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    background: rgb(68, 68, 68);
+    padding: 5px;
+}
+
+.home-page .gif-card .btn-more {
+    margin: 12px 15px 15px;
+}
+    */
