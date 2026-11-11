@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Animated Comic | Fingarium</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .reader {
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        #episodeTitle {
+            margin-bottom: 25px;
+        }
+
+        #comicPage {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin: 25px 0 15px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            border: 0;
+            border-radius: 6px;
+        }
+
+        button:disabled {
+            opacity: 0.3;
+            cursor: default;
+        }
+
+        .home {
+            display: inline-block;
+            margin: 15px 0 30px;
+            padding: 12px 28px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        #pageNumber {
+            color: #bbb;
+        }
+
+        #errorMessage {
+            color: #ff9999;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="reader">
+
+        <h1 id="episodeTitle">Loading episode...</h1>
+
+        <p id="errorMessage"></p>
+
+        <img id="comicPage" alt="Animated comic page">
+
+        <div class="navigation">
+
+            <button id="previous">← Previous</button>
+
+            <span id="pageNumber"></span>
+
+            <button id="next">Next →</button>
+
+        </div>
+
+        <a class="home" href="../index.html">⌂ Home</a>
+
+    </main>
+
+
+    <!-- Učitavanje podataka o svim epizodama -->
+    <script src="../data/episodes.js"></script>
+
+    <!-- Funkcije čitača -->
+    <script>
+
+        // 1. Čitamo ID iz adrese stranice.
+        const parameters = new URLSearchParams(window.location.search);
+
+        const episodeID = parameters.get("id");
+
+
+        // 2. Pronalazimo epizodu u episodes.js.
+        const episode = window.EPISODES[episodeID];
+
+
+        // 3. Povezujemo HTML elemente.
+        const title = document.getElementById("episodeTitle");
+        const comicPage = document.getElementById("comicPage");
+        const pageNumber = document.getElementById("pageNumber");
+        const previous = document.getElementById("previous");
+        const next = document.getElementById("next");
+        const errorMessage = document.getElementById("errorMessage");
+
+
+        // 4. Provjeravamo postoji li tražena epizoda.
+        if (!episode || !episode.pages || episode.pages.length === 0) {
+
+            title.textContent = "Episode not found";
+
+            errorMessage.textContent =
+                "This episode is unavailable.";
+
+            comicPage.style.display = "none";
+            previous.style.display = "none";
+            next.style.display = "none";
+            pageNumber.style.display = "none";
+
+        } else {
+
+            // 5. Postavljamo naslov epizode.
+            title.textContent = episode.title;
+
+            // Počinjemo od prve GIF stranice.
+            let currentPage = 0;
+
+
+            // 6. Prikaz izabrane stranice.
+            function showPage() {
+
+                comicPage.src = episode.pages[currentPage];
+
+                pageNumber.textContent =
+                    "Page " + (currentPage + 1) +
+                    " / " + episode.pages.length;
+
+                previous.disabled = currentPage === 0;
+
+                next.disabled =
+                    currentPage === episode.pages.length - 1;
+            }
+
+
+            // 7. Dugme Previous.
+            previous.addEventListener("click", function () {
+
+                if (currentPage > 0) {
+
+                    currentPage--;
+
+                    showPage();
+                }
+
+            });
+
+
+            // 8. Dugme Next.
+            next.addEventListener("click", function () {
+
+                if (currentPage < episode.pages.length - 1) {
+
+                    currentPage++;
+
+                    showPage();
+                }
+
+            });
+
+
+            // 9. Prikaz prve stranice pri otvaranju epizode.
+            showPage();
+
+        }
+
+    </script>
+
+</body>
+</html>
