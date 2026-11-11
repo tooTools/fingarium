@@ -1,0 +1,126 @@
+
+/* PORTFOLIO PAGE */
+
+.portfolio-main {
+    width: calc(100% - 30px);
+    max-width: 1200px;
+    margin: 40px auto;
+    padding-bottom: 30px;
+}
+
+.portfolio-heading {
+    text-align: center;
+    color: white;
+    margin-bottom: 35px;
+}
+
+.portfolio-heading h1 {
+    font-size: 2.2em;
+    margin-bottom: 12px;
+}
+
+.portfolio-heading p {
+    color: #cccccc;
+    font-size: 1em;
+}
+
+
+/* PROJECT GRID */
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+
+/* PROJECT CARD */
+
+.portfolio-card {
+    background: rgb(68, 68, 68);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+}
+
+
+/* VIDEO / MEDIA AREA */
+
+.media-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: rgb(25, 25, 25);
+    color: #aaaaaa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+
+/* PROJECT INFORMATION */
+
+.portfolio-info {
+    padding: 18px;
+    color: white;
+}
+
+.portfolio-info h2 {
+    font-size: 1.3em;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.portfolio-info p {
+    color: #dddddd;
+    line-height: 1.5;
+    min-height: 65px;
+}
+
+.project-category {
+    display: block;
+    margin-top: 15px;
+    padding: 9px;
+    text-align: center;
+    background: rgb(36, 36, 36);
+    border-radius: 6px;
+    font-size: 0.85em;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .portfolio-main {
+        margin-top: 25px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .portfolio-info {
+        padding: 10px;
+    }
+
+    .portfolio-info h2 {
+        font-size: 1em;
+    }
+
+    .portfolio-info p {
+        font-size: 0.85em;
+        min-height: 0;
+    }
+
+    .project-category {
+        font-size: 0.75em;
+    }
+}
