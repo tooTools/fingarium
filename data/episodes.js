@@ -8,6 +8,7 @@
     3. pages - redosljed GIF stranica
 */
 
+
 window.EPISODES = {
 
     // EPIZODA 01
@@ -16,12 +17,12 @@ window.EPISODES = {
         title: "3R Protocol – Episode 01",
 
         pages: [
-
-            // Stranica 1
-            "https://ik.imagekit.io/fingarium/Giff/Giff/3R%20Protocol/test%20dimenzija%205.gif?updatedAt=1794231472095"
-
-            // Stranica 2, 3, 4... dodavaćemo ovdje.
+            "https://ik.imagekit.io/fingarium/Giff/Giff/3R%20Protocol/Ep-1/3r-ep001-p001.gif?updatedAt=1794410300062",
+            "https://ik.imagekit.io/fingarium/Giff/Giff/3R%20Protocol/Ep-1/3r-ep001-p002.gif?updatedAt=1794410301009",
+            "https://ik.imagekit.io/fingarium/Giff/Giff/3R%20Protocol/Ep-1/3r-ep001-p003.gif?updatedAt=1794410303760",
+            "https://ik.imagekit.io/fingarium/Giff/Giff/3R%20Protocol/Ep-1/3r-ep001-p004.gif?updatedAt=1794410303847"
         ]
     }
 
 };
+
