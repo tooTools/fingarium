@@ -24,5 +24,19 @@ window.EPISODES = {
         ]
     }
 
+      // EPIZODA 02
+    "3r-protocol-02": {
+        title: "3R Protocol – Episode 02",
+        pages: [
+            "https://ik.imagekit.io/fingarium/Giff/Giff/3R%20Protocol/Ep-2/3r-ep002-p001.gif",
+            "https://ik.imagekit.io/fingarium/Giff/Giff/3R%20Protocol/Ep-2/3r-ep002-p002.gif",
+            "https://ik.imagekit.io/fingarium/Giff/Giff/3R%20Protocol/Ep-2/3r-ep002-p003.gif",
+            "https://ik.imagekit.io/fingarium/Giff/Giff/3R%20Protocol/Ep-2/3r-ep002-p004.gif"
+        ]
+    }
+
+
+
+
 };
 
