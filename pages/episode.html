@@ -148,19 +148,27 @@
 
 
             // 6. Prikaz izabrane stranice.
-            function showPage() {
+           
+function showPage() {
 
-                comicPage.src = episode.pages[currentPage];
+    comicPage.src = episode.pages[currentPage];
 
-                pageNumber.textContent =
-                    "Page " + (currentPage + 1) +
-                    " / " + episode.pages.length;
+    pageNumber.textContent =
+        "Page " + (currentPage + 1) +
+        " / " + episode.pages.length;
 
-                previous.disabled = currentPage === 0;
+    previous.disabled = currentPage === 0;
 
-                next.disabled =
-                    currentPage === episode.pages.length - 1;
-            }
+    next.disabled =
+        currentPage === episode.pages.length - 1;
+
+    // Vrati prikaz na vrh stranice
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
 
 
             // 7. Dugme Previous.
