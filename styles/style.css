@@ -185,3 +185,12 @@ footer a:hover {
         flex: 1 1 100%;
     }
 }
+
+
+
+/*za Giff da bude u cardu a ne samostalno Go
+.home-page .card:last-child .card-image {
+    object-fit: contain;
+    background-color: rgb(19, 19, 19);
+}
+*/
