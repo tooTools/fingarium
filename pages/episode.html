@@ -318,41 +318,62 @@
 
             // 7. DISPLAY CURRENT PAGE
 
-            function showPage() {
+          
+function showPage() {
 
-                // Load GIF animation.
+    // Sakrij oba sloja dok se nova stranica učitava.
+    comicPage.style.visibility = "hidden";
+    textOverlay.style.visibility = "hidden";
 
-                comicPage.src = episode.pages[currentPage];
+    let loadedImages = 0;
 
+    function imageReady() {
 
-                // Load corresponding language PNG.
+        loadedImages++;
 
-                updateLanguage();
+        // Prikaži GIF i tekst tek kada su oba učitana.
+        if (loadedImages === 2) {
 
+            comicPage.style.visibility = "visible";
+            textOverlay.style.visibility = "visible";
 
-                // Update page counter.
+        }
+    }
 
-                pageNumber.textContent =
-                    "Page " + (currentPage + 1) +
-                    " / " + episode.pages.length;
+    // Prati učitavanje oba elementa.
+    comicPage.onload = imageReady;
+    textOverlay.onload = imageReady;
 
+    // Ako neki fajl ne može da se učita,
+    // ne ostavljaj stranicu trajno sakrivenu.
+    comicPage.onerror = imageReady;
+    textOverlay.onerror = imageReady;
 
-                // Navigation buttons.
+    // Učitaj odgovarajući GIF.
+    comicPage.src = episode.pages[currentPage];
 
-                previous.disabled = currentPage === 0;
+    // Učitaj odgovarajući jezički PNG.
+    updateLanguage();
 
-                next.disabled =
-                    currentPage === episode.pages.length - 1;
+    // Broj stranice.
+    pageNumber.textContent =
+        "Page " + (currentPage + 1) +
+        " / " + episode.pages.length;
 
+    // Dugmad za navigaciju.
+    previous.disabled = currentPage === 0;
 
-                // Return to top.
+    next.disabled =
+        currentPage === episode.pages.length - 1;
 
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
+    // Povratak na vrh.
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
-            }
+}
+
 
 
             // 8. SERBIAN BUTTON
