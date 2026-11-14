@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KOE JOE | Animated Comics</title>
+
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <style>
+
+        .koejoe-gallery {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .koejoe-gallery h1 {
+            margin-bottom: 12px;
+        }
+
+        .koejoe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
+            justify-content: center;
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .koejoe-card {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 12px;
+            background: rgba(128,128,128,0.15);
+            transition: transform 0.2s;
+        }
+
+        .koejoe-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .koejoe-card img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            object-fit: contain;
+            background: #111;
+            border-radius: 8px;
+        }
+
+        .koejoe-back {
+            display: inline-block;
+            margin-top: 35px;
+            color: white;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="page-wrapper">
+
+    <header>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+        </ul>
+    </header>
+
+
+    <main class="koejoe-gallery">
+
+        <h1>KOE JOE</h1>
+
+        <p>Animated Stories and Adventures</p>
+
+
+        <div class="koejoe-grid">
+
+            <!-- EPISODE 01 -->
+
+            <a class="koejoe-card"
+               href="koejoe-episode.html?id=koejoe-ep-01">
+
+                <img
+                    src="https://ik.imagekit.io/fingarium/Giff/Giff/KOE%20JOE/Ep-1/koejoe-ep001-p001.gif?updatedAt=1794698960500"
+                    alt="KOE JOE Episode 01"
+                >
+
+                <h2>Episode 01</h2>
+
+                <p>KOE JOE – Animated Comic</p>
+
+                <span>Read episode →</span>
+
+            </a>
+
+        </div>
+
+
+        <a class="koejoe-back" href="../index.html">
+            ← Back to Home
+        </a>
+
+    </main>
+
+</div>
+
+</body>
+</html>
