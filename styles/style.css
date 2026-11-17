@@ -211,6 +211,64 @@ footer a:hover {
 }
 
 
+/* MP4 COMIC PREVIEW - HOME PAGE */
+
+.comic-preview-card {
+    display: block;
+    width: 220px;
+    max-width: 100%;
+    flex: 0 1 220px;
+
+    padding: 15px;
+
+    text-align: center;
+    text-decoration: none;
+    color: white;
+
+    background: rgba(128,128,128,0.15);
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    transition: transform 0.2s ease;
+}
+
+.comic-preview-card:hover {
+    transform: translateY(-5px);
+}
+
+.comic-preview-video {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 9 / 16;
+    object-fit: contain;
+
+    background: #111;
+    border-radius: 8px;
+}
+
+.comic-preview-card h2 {
+    margin: 12px 0;
+}
+
+.comic-preview-card p {
+    margin-bottom: 10px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .comic-preview-card {
+        width: 220px;
+        max-width: calc(100vw - 30px);
+        flex: 0 1 220px;
+    }
+
+}
+
 /*za Giff da bude u cardu a ne samostalno Go
 .home-page .card:last-child .card-image {
     object-fit: contain;
