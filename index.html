@@ -39,7 +39,7 @@
 
 
 
-<!-- CARD 4 - 3R PROTOCOL INTRO a href="pages/gif-gallery.html" class="card" -->
+<!-- CARD 1 - 3R PROTOCOL INTRO a href="pages/gif-gallery.html" class="card" -->
 
 <a href="pages/mp4-gallery.html" class="card">
 
@@ -69,7 +69,7 @@
 
 
 
-<!-- KOE JOE - THUMBNAIL MP4 -->
+<!--2 KOE JOE - THUMBNAIL MP4 -->
 
 <a href="pages/koejoe-mp4-gallery.html" class="card">
     
@@ -105,7 +105,7 @@
 
 
 
-<!-- 3R PROTOCOL -->
+<!-- 3 Riff Suburby -->
 
 <a href="pages/gif-gallery.html" class="card">
 
@@ -265,7 +265,28 @@
 
 
 
+<!-- VIDEO MODAL -->
 
+<div class="video-modal" id="videoModal">
+
+    <div class="video-modal-content">
+
+        <button class="video-close" id="videoClose">×</button>
+
+        <div class="video-modal-frame">
+            <iframe
+                id="videoPlayer"
+                src=""
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <h2 id="videoTitle"></h2>
+
+    </div>
+
+</div>
 
 
 
@@ -274,6 +295,70 @@
 
 
 </section>
+
+<!-- VIDEO PLAYER SCRIPT -->
+
+<script>
+
+    const videoCards = document.querySelectorAll(".video-card");
+
+    const modal = document.getElementById("videoModal");
+    const player = document.getElementById("videoPlayer");
+    const closeButton = document.getElementById("videoClose");
+    const videoTitle = document.getElementById("videoTitle");
+
+
+    videoCards.forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            player.src = card.dataset.video;
+
+            videoTitle.textContent = card.dataset.title;
+
+            modal.classList.add("active");
+
+            document.body.classList.add("video-open");
+
+        });
+
+    });
+
+
+    function closeVideo() {
+
+        modal.classList.remove("active");
+
+        player.src = "";
+
+        document.body.classList.remove("video-open");
+
+    }
+
+
+    closeButton.addEventListener("click", closeVideo);
+
+
+    modal.addEventListener("click", event => {
+
+        if (event.target === modal) {
+            closeVideo();
+        }
+
+    });
+
+
+    document.addEventListener("keydown", event => {
+
+        if (event.key === "Escape") {
+            closeVideo();
+        }
+
+    });
+
+</script>
+
+
 
         <footer>
             <ul>
