@@ -236,31 +236,17 @@ footer a:hover {
     display: block;
 }
 
-/*za Giff da bude u cardu a ne samostalno Go
-.home-page .card:last-child .card-image {
-    object-fit: contain;
-    background-color: rgb(19, 19, 19);
-}
-*/
-
-/* GIF CARD - HOME PAGE 
-.home-page .gif-card {
-    grid-column: 1 / -1;
-    background: rgb(68, 68, 68);
+/* HOME PAGE - 3 CARDS PER ROW */
+.home-page section {
+    display: grid !important;
+    grid-template-columns: repeat(3, 270px);
+    justify-content: center;
+    gap: 30px;
 }
 
-.home-page .gif-card-image {
-    width: 100%;
-    height: 280px;
-    object-fit: contain;
-    background: rgb(68, 68, 68);
-    padding: 5px;
-}
 
-.home-page .gif-card .btn-more {
-    margin: 12px 15px 15px;
-}
-    */
+
+
 
     /* VIDEO MODAL */
 
