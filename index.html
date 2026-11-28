@@ -37,9 +37,6 @@
     text-align:center;
 ">
 
-
-
-
 <!-- CARD 1 - 3R PROTOCOL INTRO  -->
 <a href="pages/mp4-gallery.html" class="card">
 
@@ -57,20 +54,12 @@
             type="video/mp4"
         >
     </video>
-
     <h2>3R Protocol – Introduction</h2>
-
     <p>Discover the 3R Protocol animated comic.</p>
-
     <span class="btn-more">More</span>
-
 </a>
 
-
-
-
 <!--2 KOE JOE - THUMBNAIL MP4 -->
-
 <a href="pages/koejoe-mp4-gallery.html" class="card">
     
 
@@ -94,42 +83,11 @@
         prodavanje 
         i upad
     </p>
-
-    <span class="btn-more">More</span>
-
-</a>
-
-<!-- 3 Riff Suburby 
-<a href="pages/gif-gallery.html" class="card">
-
-    <video
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        class="card-image"
-        style="width:100%; height:180px; object-fit:cover; display:block;"
-    >
-        <source
-            src="https://fingarium.damircekicdamir.workers.dev/WebMedia/3R%20Protocol/Giff/Thumbnail/rr_stepenice.mp4"
-            type="video/mp4"
-        >
-    </video>
-    <h2>Riff Suburby <br>
-        Fingarium
-    </h2>
-    <p>Animated Comic <br>
-        and way wAy more
-    </p>
     <span class="btn-more">More</span>
 </a>
--->
 
 
-
-<!-- PORTFOLIO VIDEO 01 - VIMEO -->
-
+<!-- Riff Suburby -->
 <a href="#" class="card video-card"
    data-title="Riff Suburby"
    data-video="https://www.youtube.com/embed/zSPqTvgAtQ8">
@@ -139,22 +97,16 @@
         alt="Riff Suburby"
         class="card-image"
     >
-
     <h2>Riff Suburby<br>
         Android Game
-
     </h2>
-
     <p>Riff Suburby <br>
         Trailer.</p>
-
     <span class="btn-more">Play Video</span>
-
 </a>
 
 
 <!-- PORTFOLIO VIDEO 04 - GOOGLE DRIVE -->
-
 <a href="#" class="card video-card"
    data-title="Video Project 04"
    data-video="https://drive.google.com/file/d/1OqfmQQbpdho4jJmwLcAVGqtKGXjC8Hvh/preview">
@@ -164,18 +116,13 @@
         alt="Video Project 04"
         class="card-image"
     >
-
     <h2>Video Project 04</h2>
-
     <p>Selected creative project.</p>
-
     <span class="btn-more">Play Video</span>
-
 </a>
 
 
 <!-- PORTFOLIO VIDEO 01 - VIMEO -->
-
 <a href="#" class="card video-card"
    data-title="Featured Video Project"
    data-video="https://player.vimeo.com/video/1195078620?autoplay=1">
@@ -185,73 +132,15 @@
         alt="Featured Video Project"
         class="card-image"
     >
-
     <h2>Showreel</h2>
-
     <p>Selected video production and creative work.</p>
-
     <span class="btn-more">Play Video</span>
 
 </a>
 
 
 
-<!-- 3R PROTOCOL - EPISODE 02 MP4 
 
-<a href="pages/episode.html?id=3r-protocol-02" class="card">
-
-    <video
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-        class="card-image"
-        style="width:100%; height:180px; object-fit:cover; display:block;"
-    >
-        <source
-            src="https://ik.imagekit.io/fingarium/Giff/Giff/3R%20Protocol/Ep-2/3r-ep001-p001.mp4"
-            type="video/mp4">
-    </video>
-
-    <h2>3R Protocol – Episode 02</h2>
-
-    <p>MP4 Animated Comic</p>
-
-    <span class="btn-more">More</span>
-
-</a>
-
--->
-
-
-<!-- KOE JOE - THUMBNAIL MP4 
-<a href="pages/koejoe-mp4-gallery.html" class="card">
-
-    <video
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        class="card-image"
-        style="width:100%; height:180px; object-fit:cover; display:block;"
-    >
-        <source
-            src="https://fingarium.damircekicdamir.workers.dev/WebMedia/KOE%20JOE/Gif/Ep-1/koejoe-ep001-p001.mp4"
-            type="video/mp4"
-        >
-    </video>
-
-    <h2>KOE JOE</h2>
-
-    <p>MP4 Animated Comic</p>
-
-    <span class="btn-more">More</span>
-
-</a>
-
--->
 
       
 <main class="container">
@@ -319,17 +208,14 @@
 
 
 <!-- VIDEO MODAL -->
-
 <div class="video-modal" id="videoModal">
-
     <div class="video-modal-content">
-
         <button class="video-close" id="videoClose">×</button>
-
         <div class="video-modal-frame">
             <iframe
                 id="videoPlayer"
                 src=""
+                referrerpolicy="strict-origin-when-cross-origin"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowfullscreen>
             </iframe>
@@ -338,23 +224,14 @@
         <h2 id="videoTitle"></h2>
 
     </div>
-
 </div>
-
-
-
-
-
-
-
 </section>
 
-<!-- VIDEO PLAYER SCRIPT -->
 
+<!-- VIDEO PLAYER SCRIPT -->
 <script>
 
     const videoCards = document.querySelectorAll(".video-card");
-
     const modal = document.getElementById("videoModal");
     const player = document.getElementById("videoPlayer");
     const closeButton = document.getElementById("videoClose");
@@ -362,66 +239,138 @@
 
 
     videoCards.forEach(card => {
-
         card.addEventListener("click", () => {
-
             player.src = card.dataset.video;
-
             videoTitle.textContent = card.dataset.title;
-
             modal.classList.add("active");
-
             document.body.classList.add("video-open");
-
         });
-
     });
 
-
     function closeVideo() {
-
         modal.classList.remove("active");
-
         player.src = "";
-
         document.body.classList.remove("video-open");
 
     }
-
-
     closeButton.addEventListener("click", closeVideo);
-
-
     modal.addEventListener("click", event => {
 
         if (event.target === modal) {
             closeVideo();
         }
-
     });
-
-
     document.addEventListener("keydown", event => {
-
         if (event.key === "Escape") {
             closeVideo();
         }
-
     });
 
 </script>
 
 
-
         <footer>
             <ul>
                 <li><a href="index.html">Home</a></li>
+
+
+                <!--
                 <li><a href="pages/pageGamesCommingSoon.html">Games</a></li>
                 <li><a href="pages/contact.html">Contact</a></li>
                 <li><a href="https://www.patreon.com/user?u=76812520" target="_blank" rel="noopener">Patreon</a></li>
+                -->
+
+
             </ul>
         </footer>
 
     </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 3 Riff Suburby 
+<a href="pages/gif-gallery.html" class="card">
+
+    <video
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        class="card-image"
+        style="width:100%; height:180px; object-fit:cover; display:block;"
+    >
+        <source
+            src="https://fingarium.damircekicdamir.workers.dev/WebMedia/3R%20Protocol/Giff/Thumbnail/rr_stepenice.mp4"
+            type="video/mp4"
+        >
+    </video>
+    <h2>Riff Suburby <br>
+        Fingarium
+    </h2>
+    <p>Animated Comic <br>
+        and way wAy more
+    </p>
+    <span class="btn-more">More</span>
+</a>
+-->
+
+<!-- 3R PROTOCOL - EPISODE 02 MP4 
+<a href="pages/episode.html?id=3r-protocol-02" class="card">
+    <video
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        class="card-image"
+        style="width:100%; height:180px; object-fit:cover; display:block;"
+    >
+        <source
+            src="https://ik.imagekit.io/fingarium/Giff/Giff/3R%20Protocol/Ep-2/3r-ep001-p001.mp4"
+            type="video/mp4">
+    </video>
+    <h2>3R Protocol – Episode 02</h2>
+    <p>MP4 Animated Comic</p>
+
+    <span class="btn-more">More</span>
+</a>
+-->
+
+<!-- KOE JOE - THUMBNAIL MP4 
+<a href="pages/koejoe-mp4-gallery.html" class="card">
+
+    <video
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        class="card-image"
+        style="width:100%; height:180px; object-fit:cover; display:block;"
+    >
+        <source
+            src="https://fingarium.damircekicdamir.workers.dev/WebMedia/KOE%20JOE/Gif/Ep-1/koejoe-ep001-p001.mp4"
+            type="video/mp4"
+        >
+    </video>
+    <h2>KOE JOE</h2>
+    <p>MP4 Animated Comic</p>
+    <span class="btn-more">More</span>
+</a>
+
+-->
