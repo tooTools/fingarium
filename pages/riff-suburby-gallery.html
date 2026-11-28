@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Riff Suburby | Fingarium</title>
+
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <style>
+
+        .comics-gallery {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .episode-grid {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 35px;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 35px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="page-wrapper">
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+        </ul>
+
+    </header>
+
+
+    <!-- RIFF SUBURBY GALLERY -->
+
+    <main class="comics-gallery">
+
+        <h1>RIFF SUBURBY</h1>
+
+        <p>Android Game – Videos and Tutorials</p>
+
+
+        <div class="episode-grid">
+
+
+            <!-- Riff Suburby Trailer -->
+
+<a href="#" class="card video-card"
+   data-title="Riff Suburby"
+   data-video="https://www.youtube.com/embed/zSPqTvgAtQ8">
+
+    <img
+        src="https://fingarium.damircekicdamir.workers.dev/WebMedia/Riff%20Suburby/Thumbnail/riff_thumbnail_.jpg"
+        alt="Riff Suburby"
+        class="card-image"
+    >
+
+    <h2>Riff Suburby<br></h2>
+
+    <p>Android Game<br>
+       Trailer.</p>
+
+    <span class="btn-more">Play Video</span>
+
+</a>
+
+
+
+
+            <!-- CARD 1 - YOUTUBE TRAILER -->
+
+            <a href="#"
+               class="card video-card"
+               data-title="Riff Suburby – Trailer"
+               data-video="https://www.youtube.com/embed/zSPqTvgAtQ8">
+
+                <img
+                    src="https://fingarium.damircekicdamir.workers.dev/WebMedia/Riff%20Suburby/Thumbnail/riff_thumbnail_.jpg"
+                    alt="Riff Suburby"
+                    class="card-image"
+                >
+
+                <h2>Riff Suburby</h2>
+
+                <p>Android Game<br>
+                   Trailer</p>
+
+                <span class="btn-more">Play Video</span>
+
+            </a>
+
+
+            <!-- CARD 2 - HOW TO PLAY -->
+
+            <a href="#"
+               class="card video-card"
+               data-title="Riff Suburby – How to Play"
+               data-video="https://drive.google.com/file/d/1OqfmQQbpdho4jJmwLcAVGqtKGXjC8Hvh/preview">
+
+                <img
+                    src="https://fingarium.damircekicdamir.workers.dev/WebMedia/Riff%20Suburby/Thumbnail/riff_thumbnail_2.jpg"
+                    alt="How to Play"
+                    class="card-image"
+                >
+
+                <h2>Riff Suburby</h2>
+
+                <p>What to do<br>
+                   and how to play</p>
+
+                <span class="btn-more">More</span>
+
+            </a>
+
+
+        </div>
+
+
+        <!-- BACK HOME -->
+
+        <a class="back-home" href="../index.html">
+            ← Home
+        </a>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- VIDEO MODAL -->
+
+<div class="video-modal" id="videoModal">
+
+    <div class="video-modal-content">
+
+        <button class="video-close" id="videoClose">×</button>
+
+        <div class="video-modal-frame">
+
+            <iframe
+                id="videoPlayer"
+                src=""
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+        <h2 id="videoTitle"></h2>
+
+    </div>
+
+</div>
+
+
+
+<!-- VIDEO PLAYER SCRIPT -->
+
+<script>
+
+    const videoCards = document.querySelectorAll(".video-card");
+
+    const modal = document.getElementById("videoModal");
+
+    const player = document.getElementById("videoPlayer");
+
+    const closeButton = document.getElementById("videoClose");
+
+    const videoTitle = document.getElementById("videoTitle");
+
+
+    // OPEN VIDEO
+
+    videoCards.forEach(card => {
+
+        card.addEventListener("click", event => {
+
+            event.preventDefault();
+
+            player.src = card.dataset.video;
+
+            videoTitle.textContent = card.dataset.title;
+
+            modal.classList.add("active");
+
+            document.body.classList.add("video-open");
+
+        });
+
+    });
+
+
+    // CLOSE VIDEO
+
+    function closeVideo() {
+
+        modal.classList.remove("active");
+
+        player.src = "";
+
+        document.body.classList.remove("video-open");
+
+    }
+
+
+    closeButton.addEventListener("click", closeVideo);
+
+
+    // CLOSE WHEN CLICKING OUTSIDE VIDEO
+
+    modal.addEventListener("click", event => {
+
+        if (event.target === modal) {
+
+            closeVideo();
+
+        }
+
+    });
+
+
+    // CLOSE WITH ESCAPE
+
+    document.addEventListener("keydown", event => {
+
+        if (event.key === "Escape") {
+
+            closeVideo();
+
+        }
+
+    });
+
+</script>
+
+
+</body>
+
+</html>
