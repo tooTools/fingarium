@@ -103,6 +103,32 @@
 
 </a>
 
+<!-- YOUTUBE VIDEO 01 -->
+
+<a href="#" class="card video-card"
+   data-title="Riff Suburby"
+   data-video="https://www.youtube.com/embed/zSPqTvgAtQ8">
+
+    <img
+        src="https://fingarium.damircekicdamir.workers.dev/WebMedia/Riff%20Suburby/Thumbnail/riff_thumbnail_.jpg"
+        alt="Riff Suburby"
+        class="card-image"
+    >
+
+    <h2>Riff Suburby<br></h2>
+
+    <p>Android Game<br>
+       Trailer.</p>
+
+    <span class="btn-more">Play Video</span>
+
+</a>
+
+
+
+
+
+
 
             <!-- EPISODE 02 -->
 
@@ -142,6 +168,98 @@
     </main>
 
 </div>
+
+
+
+<!-- VIDEO MODAL -->
+<div class="video-modal" id="videoModal">
+
+    <div class="video-modal-content">
+
+        <button class="video-close" id="videoClose">×</button>
+
+        <div class="video-modal-frame">
+            <iframe
+                id="videoPlayer"
+                src=""
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <h2 id="videoTitle"></h2>
+
+    </div>
+
+</div>
+
+
+<!-- VIDEO PLAYER SCRIPT -->
+<script>
+
+    const videoCards = document.querySelectorAll(".video-card");
+    const modal = document.getElementById("videoModal");
+    const player = document.getElementById("videoPlayer");
+    const closeButton = document.getElementById("videoClose");
+    const videoTitle = document.getElementById("videoTitle");
+
+    videoCards.forEach(card => {
+
+        card.addEventListener("click", event => {
+
+            event.preventDefault();
+
+            player.src = card.dataset.video;
+            videoTitle.textContent = card.dataset.title;
+
+            modal.classList.add("active");
+            document.body.classList.add("video-open");
+
+        });
+
+    });
+
+    function closeVideo() {
+
+        modal.classList.remove("active");
+        player.src = "";
+
+        document.body.classList.remove("video-open");
+
+    }
+
+    closeButton.addEventListener("click", closeVideo);
+
+    modal.addEventListener("click", event => {
+
+        if (event.target === modal) {
+            closeVideo();
+        }
+
+    });
+
+    document.addEventListener("keydown", event => {
+
+        if (event.key === "Escape") {
+            closeVideo();
+        }
+
+    });
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
