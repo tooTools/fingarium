@@ -243,6 +243,10 @@ footer a:hover {
     justify-content: center;
     gap: 30px;
 }
+.home-page section > a.card:nth-child(4) {
+    grid-column: 2;
+}
+
 
 @media (max-width: 600px) {
     .home-page section {
